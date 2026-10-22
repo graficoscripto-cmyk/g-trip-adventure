@@ -29,6 +29,12 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="G-TRIP Adventure — Passeios de Barco na Ilha do Guaraú">
+  <meta name="twitter:description" content="Piscina natural da Ilha do Guaraú, cachoeira no mar na Praia do Arpoador e Rio Guaraú em Peruíbe (SP).">
+  <meta name="twitter:image" content="https://g-trip-adventure.vercel.app/img/og-gtrip-1200x630.jpg">
+
   <!-- Preload Hero 4K -->
   <link rel="preload" as="image" href="img/ilha-guarau-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" as="image" href="img/ilha-guarau-hero.webp" media="(min-width: 769px)" fetchpriority="high">
@@ -36,9 +42,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (@graph completo SEO + GEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,6 +86,36 @@
           "ratingCount": "28",
           "reviewCount": "28"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://g-trip-adventure.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "De onde sai o barco da G-TRIP Adventure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O embarque acontece nas águas calmas do Rio Guaraú, na Praia do Guaraú em Peruíbe - SP. Enviamos a localização exata pelo WhatsApp (13) 99664-5411."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Precisa saber nadar para ir à Ilha do Guaraú?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. A embarcação conta com coletes salva-vidas homologados para adultos e crianças, além de parada em piscina natural abrigada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais são as paradas do passeio de barco?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Navegação pelo Rio Guaraú e Manguezal, parada para banho na piscina natural da Ilha do Guaraú e visita à Praia do Arpoador (cachoeira no mar)."
+            }
+          }
+        ]
       }
     ]
   }
@@ -90,8 +126,8 @@
       --abyss: #03121C;
       --deep: #062133;
       --navy: #093049;
-      --lagoon-bg: #CCF0F7;
-      --lagoon-bg-2: #BBE6F2;
+      --lagoon-bg: #C8EFF8;
+      --lagoon-bg-2: #B3E4F2;
       --teal-600: #0D9488;
       --teal-500: #14B8A6;
       --teal-400: #2DD4BF;
@@ -102,13 +138,15 @@
       --gold-400: #FBBF24;
       --gold-500: #F59E0B;
       --ink: #041826;
-      --ink-soft: #234961;
+      --ink-soft: #1E445C;
       --text-light: #F0FDFA;
       --text-dim: rgba(204, 251, 241, 0.82);
-      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
       --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
       --font-serif: 'Instrument Serif', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
     *, *::before, *::after {
@@ -141,10 +179,11 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--teal-400), var(--gold-400));
+      background: linear-gradient(90deg, var(--teal-400), var(--gold-400), var(--sky-300));
       transform-origin: 0 50%;
       transform: scaleX(0);
-      z-index: 100;
+      z-index: 120;
+      box-shadow: 0 0 12px rgba(45, 212, 191, 0.7);
     }
 
     picture { display: block; width: 100%; height: 100%; }
@@ -154,7 +193,7 @@
 
     .wrap {
       width: 100%;
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 18px;
       position: relative;
@@ -187,13 +226,14 @@
       padding: 8px 8px 8px 22px;
       min-height: 52px;
       border-radius: 999px;
-      box-shadow: 0 16px 36px -8px rgba(45, 212, 191, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+      box-shadow: 0 16px 36px -8px rgba(45, 212, 191, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+      will-change: transform;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 42px -8px rgba(45, 212, 191, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+      box-shadow: 0 22px 44px -8px rgba(45, 212, 191, 0.68), inset 0 1px 0 rgba(255, 255, 255, 0.65);
     }
 
     .btn-primary:active { transform: scale(0.97); }
@@ -202,18 +242,18 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(3, 18, 28, 0.22);
+      background: rgba(3, 18, 28, 0.24);
       color: #fff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: transform 220ms var(--ease-out), background-color 220ms var(--ease-out);
+      transition: transform 240ms var(--ease-spring), background-color 220ms var(--ease-out);
     }
 
     .btn-primary:hover .btn-icon-circle {
-      transform: translate(2px, -1px) scale(1.06);
-      background: rgba(3, 18, 28, 0.36);
+      transform: translate(3px, -1px) scale(1.08);
+      background: rgba(3, 18, 28, 0.38);
     }
 
     .btn-glass {
@@ -224,8 +264,8 @@
       padding: 13px 22px;
       min-height: 52px;
       border-radius: 999px;
-      background: rgba(3, 18, 28, 0.72);
-      border: 1px solid rgba(94, 234, 212, 0.42);
+      background: rgba(3, 18, 28, 0.74);
+      border: 1px solid rgba(94, 234, 212, 0.44);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       color: #fff;
@@ -238,6 +278,7 @@
     .btn-glass:hover {
       background: rgba(20, 184, 166, 0.28);
       border-color: var(--teal-300);
+      transform: translateY(-2px);
     }
 
     /* TOP HEADER — SOLTO NO TOPO (SAI DA TELA AO ROLAR PARA BAIXO) */
@@ -251,12 +292,12 @@
     }
 
     .navbar {
-      max-width: 1120px;
+      max-width: 1140px;
       margin: 0 auto;
-      background: rgba(3, 18, 28, 0.76);
+      background: rgba(3, 18, 28, 0.78);
       backdrop-filter: blur(16px) saturate(160%);
       -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border: 1px solid rgba(94, 234, 212, 0.28);
+      border: 1px solid rgba(94, 234, 212, 0.3);
       box-shadow: 0 16px 36px -12px rgba(3, 18, 28, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.14);
       border-radius: 999px;
       padding: 7px 9px 7px 14px;
@@ -306,15 +347,19 @@
     .nav-links {
       display: none;
       align-items: center;
-      gap: 24px;
-      color: rgba(240, 253, 250, 0.9);
+      gap: 22px;
+      color: rgba(240, 253, 250, 0.92);
       font-size: 0.86rem;
       font-weight: 600;
     }
 
+    .nav-links a {
+      transition: color 180ms ease;
+    }
+
     .nav-links a:hover { color: var(--teal-300); }
 
-    @media (min-width: 900px) {
+    @media (min-width: 920px) {
       .nav-links { display: flex; }
     }
 
@@ -330,7 +375,10 @@
       padding: 9px 16px;
       border-radius: 999px;
       white-space: nowrap;
+      transition: transform 180ms var(--ease-out);
     }
+
+    .nav-cta:hover { transform: scale(1.03); }
 
     /* HERO 4K CINEMÁTICO — IMAGEM NÍTIDA EM DESTAQUE + TEXTO CURTO COM SOMBRA */
     .hero {
@@ -345,7 +393,7 @@
     }
 
     @media (min-width: 900px) {
-      .hero { padding: 140px 0 64px; }
+      .hero { padding: 144px 0 64px; }
     }
 
     .hero-media {
@@ -360,7 +408,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center 42%;
-      filter: saturate(1.08) contrast(1.04);
+      filter: saturate(1.1) contrast(1.04);
+      will-change: transform;
     }
 
     .hero-scrim {
@@ -368,10 +417,11 @@
       inset: 0;
       z-index: 1;
       background:
+        radial-gradient(900px 420px at 18% 82%, rgba(3, 18, 28, 0.72), transparent 70%),
         linear-gradient(
           180deg,
-          rgba(3, 18, 28, 0.22) 0%,
-          rgba(3, 18, 28, 0.04) 42%,
+          rgba(3, 18, 28, 0.25) 0%,
+          rgba(3, 18, 28, 0.04) 40%,
           rgba(3, 18, 28, 0.78) 76%,
           var(--abyss) 100%
         );
@@ -386,7 +436,7 @@
 
     @media (min-width: 960px) {
       .hero-grid {
-        grid-template-columns: 1.22fr 0.78fr;
+        grid-template-columns: 1.18fr 0.82fr;
         gap: 44px;
       }
     }
@@ -397,15 +447,15 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 999px;
-      background: rgba(3, 18, 28, 0.84);
-      border: 1px solid rgba(251, 191, 36, 0.55);
+      background: rgba(3, 18, 28, 0.86);
+      border: 1px solid rgba(251, 191, 36, 0.58);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       font-size: 0.78rem;
       font-weight: 700;
       color: #FEF3C7;
       margin-bottom: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
     }
 
     .pill-rating .stars {
@@ -415,16 +465,16 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 6.2vw, 4.1rem);
+      font-size: clamp(2.25rem, 6.2vw, 4.2rem);
       font-weight: 800;
-      line-height: 1.03;
+      line-height: 1.02;
       letter-spacing: -0.03em;
       margin-bottom: 10px;
       text-wrap: balance;
       text-shadow:
-        0 2px 12px rgba(0, 0, 0, 0.92),
-        0 6px 28px rgba(0, 0, 0, 0.85),
-        0 1px 3px rgba(0, 0, 0, 0.95);
+        0 2px 12px rgba(0, 0, 0, 0.94),
+        0 6px 28px rgba(0, 0, 0, 0.88),
+        0 1px 3px rgba(0, 0, 0, 0.96);
     }
 
     .hero h1 .serif-italic {
@@ -433,13 +483,13 @@
     }
 
     .hero-lead {
-      font-size: clamp(0.98rem, 1.9vw, 1.12rem);
+      font-size: clamp(0.98rem, 1.9vw, 1.14rem);
       color: #fff;
       max-width: 40ch;
       margin-bottom: 20px;
       text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.92),
-        0 4px 22px rgba(0, 0, 0, 0.85);
+        0 2px 10px rgba(0, 0, 0, 0.94),
+        0 4px 22px rgba(0, 0, 0, 0.88);
     }
 
     .hero-actions {
@@ -448,20 +498,63 @@
       gap: 10px;
     }
 
-    /* Card Náutico Compacto no Hero */
+    /* Card Náutico Interativo no Hero */
     .hero-shell {
       padding: 6px;
       border-radius: 26px;
-      background: rgba(45, 212, 191, 0.14);
-      border: 1px solid rgba(94, 234, 212, 0.34);
+      background: linear-gradient(145deg, rgba(45, 212, 191, 0.24), rgba(2, 132, 199, 0.14));
+      border: 1px solid rgba(94, 234, 212, 0.36);
+      box-shadow: 0 24px 50px -16px rgba(0, 0, 0, 0.65);
     }
 
     .hero-card {
       background: linear-gradient(155deg, rgba(8, 42, 62, 0.92) 0%, rgba(3, 18, 28, 0.96) 100%);
       border-radius: 20px;
       padding: 18px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hero-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--teal-300);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .live-beacon {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(45, 212, 191, 0.14);
+      border: 1px solid rgba(94, 234, 212, 0.3);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .live-beacon::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal-400);
+      box-shadow: 0 0 10px var(--teal-400);
+      animation: pulseDot 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.25); opacity: 1; }
     }
 
     .hero-metrics {
@@ -495,38 +588,38 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--sky-100);
     }
 
     .radar-track {
       flex: 1;
-      height: 2px;
-      background: rgba(94, 234, 212, 0.25);
+      height: 3px;
+      background: rgba(94, 234, 212, 0.22);
       position: relative;
-      border-radius: 2px;
+      border-radius: 99px;
       overflow: hidden;
     }
 
     .radar-pulse {
       position: absolute;
       top: 0;
-      left: -30%;
-      width: 35%;
+      left: -35%;
+      width: 40%;
       height: 100%;
       background: linear-gradient(90deg, transparent, var(--teal-400), var(--gold-400));
-      animation: radarSweep 2.6s infinite ease-in-out;
+      animation: radarSweep 2.4s infinite ease-in-out;
     }
 
     @keyframes radarSweep {
-      0% { left: -35%; }
+      0% { left: -40%; }
       100% { left: 100%; }
     }
 
     /* FAIXA MARQUEE NÁUTICA */
     .marquee {
-      background: linear-gradient(90deg, #051B2B 0%, #09324B 50%, #051B2B 100%);
+      background: linear-gradient(90deg, #041724 0%, #09324B 50%, #041724 100%);
       border-top: 1px solid rgba(94, 234, 212, 0.22);
       border-bottom: 1px solid rgba(94, 234, 212, 0.2);
       padding: 13px 0;
@@ -576,29 +669,45 @@
 
     .theme-lagoon {
       background:
-        radial-gradient(900px 460px at 10% 12%, rgba(45, 212, 191, 0.32), transparent 65%),
-        radial-gradient(850px 480px at 90% 85%, rgba(2, 132, 199, 0.24), transparent 65%),
-        linear-gradient(180deg, #CCF0F7 0%, #B8E5F2 52%, #C9EDF6 100%);
+        radial-gradient(900px 460px at 10% 12%, rgba(45, 212, 191, 0.34), transparent 65%),
+        radial-gradient(850px 480px at 90% 85%, rgba(2, 132, 199, 0.25), transparent 65%),
+        linear-gradient(180deg, #C8EFF8 0%, #B3E4F2 52%, #C6ECF6 100%);
       color: var(--ink);
-      border-top: 1px solid rgba(255, 255, 255, 0.55);
-      border-bottom: 1px solid rgba(13, 148, 136, 0.18);
+      border-top: 1px solid rgba(255, 255, 255, 0.6);
+      border-bottom: 1px solid rgba(13, 148, 136, 0.2);
     }
 
     .theme-sapphire {
       background:
-        radial-gradient(760px 420px at 85% 15%, rgba(20, 184, 166, 0.22), transparent 65%),
+        radial-gradient(780px 440px at 85% 15%, rgba(20, 184, 166, 0.24), transparent 65%),
         radial-gradient(680px 380px at 12% 85%, rgba(245, 158, 11, 0.15), transparent 65%),
         linear-gradient(180deg, #03131E 0%, #072235 50%, #03121C 100%);
       color: var(--text-light);
     }
 
     .sec-head {
-      max-width: 560px;
-      margin-bottom: 28px;
+      max-width: 600px;
+      margin-bottom: 26px;
     }
 
     @media (min-width: 900px) {
-      .sec-head { margin-bottom: 36px; }
+      .sec-head { margin-bottom: 34px; }
+    }
+
+    .sec-head-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: 860px) {
+      .sec-head-row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 34px;
+      }
     }
 
     .kicker {
@@ -618,7 +727,7 @@
     .theme-lagoon .kicker {
       background: rgba(4, 24, 38, 0.08);
       color: var(--teal-600);
-      border: 1px solid rgba(13, 148, 136, 0.24);
+      border: 1px solid rgba(13, 148, 136, 0.25);
     }
 
     .theme-sapphire .kicker {
@@ -629,7 +738,7 @@
 
     .sec-title {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.65rem);
+      font-size: clamp(1.8rem, 4.1vw, 2.75rem);
       font-weight: 800;
       line-height: 1.06;
       letter-spacing: -0.028em;
@@ -641,40 +750,341 @@
 
     .sec-sub {
       margin-top: 6px;
-      font-size: 0.95rem;
-      max-width: 42ch;
+      font-size: 0.96rem;
+      max-width: 44ch;
     }
 
     .theme-lagoon .sec-sub { color: var(--ink-soft); }
     .theme-sapphire .sec-sub { color: var(--text-dim); }
 
-    /* BARRA NÁUTICA DE TRAJETO */
-    .route-map-shell {
-      padding: 5px;
-      border-radius: 24px;
-      background: rgba(4, 24, 38, 0.12);
-      border: 1px solid rgba(13, 148, 136, 0.25);
-      margin-bottom: 24px;
+    /* =====================================================================
+       CARTA NÁUTICA & RADAR DE ROTAS INTERATIVO (DESTAQUE ESPECIAL)
+       ===================================================================== */
+    .nautical-radar-shell {
+      padding: 6px;
+      border-radius: 30px;
+      background: linear-gradient(140deg, rgba(4, 24, 38, 0.22), rgba(13, 148, 136, 0.28));
+      border: 1px solid rgba(13, 148, 136, 0.35);
+      box-shadow: 0 28px 64px -20px rgba(3, 18, 28, 0.48);
+      margin-bottom: 30px;
     }
 
-    .route-map-bar {
-      background: linear-gradient(135deg, #051D2D 0%, #093049 100%);
+    .nautical-radar-card {
+      background:
+        radial-gradient(650px 380px at 28% 45%, rgba(45, 212, 191, 0.14), transparent 70%),
+        linear-gradient(160deg, #041929 0%, #07273D 55%, #03121C 100%);
       color: #fff;
-      border-radius: 19px;
-      padding: 16px 18px;
-      box-shadow: 0 18px 40px -16px rgba(3, 18, 28, 0.45);
+      border-radius: 24px;
+      padding: 18px 16px 20px;
+      border: 1px solid rgba(94, 234, 212, 0.22);
+      position: relative;
+      overflow: hidden;
     }
 
+    @media (min-width: 900px) {
+      .nautical-radar-card { padding: 26px 28px 26px; }
+    }
+
+    /* Barra de Modos de Rota + Botão Simular Travessia */
+    .radar-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(94, 234, 212, 0.16);
+    }
+
+    .route-mode-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+      max-width: 100%;
+    }
+
+    .route-mode-tabs::-webkit-scrollbar { display: none; }
+
+    .route-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      color: var(--sky-100);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.78rem;
+      white-space: nowrap;
+      transition: all 200ms var(--ease-out);
+    }
+
+    .route-mode-btn:hover {
+      background: rgba(45, 212, 191, 0.14);
+      border-color: rgba(94, 234, 212, 0.45);
+    }
+
+    .route-mode-btn.active {
+      background: linear-gradient(135deg, var(--teal-400), var(--sky-500));
+      color: var(--abyss);
+      border-color: transparent;
+      box-shadow: 0 8px 20px -6px rgba(45, 212, 191, 0.55);
+    }
+
+    .btn-simular-rota {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.14);
+      border: 1px solid rgba(251, 191, 36, 0.48);
+      color: var(--gold-400);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.78rem;
+      white-space: nowrap;
+      transition: all 200ms var(--ease-out);
+    }
+
+    .btn-simular-rota:hover,
+    .btn-simular-rota.playing {
+      background: var(--gold-400);
+      color: var(--abyss);
+      box-shadow: 0 8px 22px -6px rgba(251, 191, 36, 0.6);
+    }
+
+    /* Grid do Mapa SVG + Painel de Telemetria da Parada */
+    .radar-stage {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    @media (min-width: 960px) {
+      .radar-stage {
+        grid-template-columns: 1.32fr 0.68fr;
+        gap: 22px;
+      }
+    }
+
+    .chart-viewport {
+      position: relative;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 52% 50%, rgba(20, 184, 166, 0.14) 0%, rgba(3, 18, 28, 0.92) 74%),
+        linear-gradient(180deg, #031523 0%, #052236 100%);
+      border: 1px solid rgba(94, 234, 212, 0.24);
+      overflow: hidden;
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px;
+    }
+
+    /* Feixe de Radar Giratório Suave */
+    .sonar-sweep {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      top: 50%;
+      left: 52%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(45, 212, 191, 0.16) 0deg, transparent 65deg, transparent 360deg);
+      animation: sonarSpin 9s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes sonarSpin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .chart-hud-top,
+    .chart-hud-bottom {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: rgba(125, 211, 252, 0.85);
+      pointer-events: none;
+    }
+
+    .hud-tag {
+      background: rgba(3, 18, 28, 0.78);
+      border: 1px solid rgba(94, 234, 212, 0.25);
+      padding: 4px 9px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+    }
+
+    .nautical-svg {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      display: block;
+      position: relative;
+      z-index: 2;
+      overflow: visible;
+    }
+
+    /* Animação dos pinos de parada no SVG */
+    .map-waypoint {
+      cursor: pointer;
+      transition: transform 220ms var(--ease-out);
+    }
+
+    .map-waypoint .wp-ring {
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: wpPulse 2.2s infinite ease-out;
+    }
+
+    .map-waypoint.active .wp-core {
+      fill: var(--gold-400);
+      stroke: #fff;
+      stroke-width: 2.5px;
+    }
+
+    .map-waypoint.active .wp-label-bg {
+      fill: rgba(251, 191, 36, 0.95);
+      stroke: #fff;
+    }
+
+    .map-waypoint.active .wp-label-txt {
+      fill: #03121C;
+      font-weight: 800;
+    }
+
+    @keyframes wpPulse {
+      0% { transform: scale(0.85); opacity: 0.85; }
+      70% { transform: scale(1.75); opacity: 0; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+
+    /* Painel Lateral de Inspeção da Parada */
+    .waypoint-inspector {
+      background: rgba(3, 18, 28, 0.78);
+      border: 1px solid rgba(94, 234, 212, 0.26);
+      border-radius: 20px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .inspector-photo {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: var(--abyss);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .inspector-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms var(--ease-out), opacity 250ms ease;
+    }
+
+    .inspector-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(3, 18, 28, 0.86);
+      border: 1px solid rgba(251, 191, 36, 0.55);
+      color: var(--gold-400);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+
+    .inspector-coords {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(3, 18, 28, 0.82);
+      color: var(--teal-300);
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .inspector-title {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+    }
+
+    .inspector-desc {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      line-height: 1.42;
+      margin-top: 4px;
+    }
+
+    .inspector-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .insp-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(94, 234, 212, 0.18);
+      border-radius: 11px;
+      padding: 7px 10px;
+    }
+
+    .insp-pill small {
+      display: block;
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal-300);
+      font-weight: 700;
+    }
+
+    .insp-pill b {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: #fff;
+    }
+
+    /* Barra de Nós Interativos da Rota (Abaixo do Radar) */
     .route-nodes {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
+      margin-top: 16px;
     }
 
     @media (min-width: 768px) {
       .route-nodes {
         grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
+        gap: 12px;
       }
     }
 
@@ -682,15 +1092,30 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(94, 234, 212, 0.18);
       border-radius: 14px;
       padding: 10px 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 200ms var(--ease-out);
+    }
+
+    .route-node:hover {
+      background: rgba(45, 212, 191, 0.12);
+      border-color: rgba(94, 234, 212, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .route-node.active {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.24), rgba(2, 132, 199, 0.24));
+      border-color: var(--gold-400);
+      box-shadow: 0 10px 24px -10px rgba(251, 191, 36, 0.45);
     }
 
     .node-dot {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--teal-400), var(--sky-500));
       color: var(--abyss);
@@ -700,10 +1125,12 @@
       display: grid;
       place-items: center;
       flex-shrink: 0;
+      transition: transform 200ms var(--ease-spring);
     }
 
-    .node-dot.gold {
+    .route-node.active .node-dot {
       background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      transform: scale(1.1);
     }
 
     .route-node div b {
@@ -711,6 +1138,7 @@
       font-family: var(--font-display);
       font-size: 0.84rem;
       line-height: 1.15;
+      color: #fff;
     }
 
     .route-node div small {
@@ -731,6 +1159,12 @@
       background: rgba(4, 24, 38, 0.12);
       border: 1px solid rgba(13, 148, 136, 0.26);
       box-shadow: 0 22px 50px -20px rgba(4, 24, 38, 0.28);
+      transition: transform 260ms var(--ease-out), border-color 260ms ease;
+    }
+
+    .stop-shell.highlighted {
+      border-color: var(--gold-500);
+      box-shadow: 0 26px 56px -16px rgba(245, 158, 11, 0.4);
     }
 
     .stop-card {
@@ -771,7 +1205,7 @@
       cursor: zoom-in;
     }
 
-    .stop-card:hover .stop-photo img { transform: scale(1.04); }
+    .stop-card:hover .stop-photo img { transform: scale(1.045); }
 
     .stop-badge {
       position: absolute;
@@ -826,7 +1260,7 @@
       color: var(--text-dim);
       font-size: 0.93rem;
       margin-bottom: 16px;
-      max-width: 34ch;
+      max-width: 36ch;
     }
 
     .stop-btn {
@@ -848,13 +1282,97 @@
       box-shadow: 0 10px 24px -6px rgba(45, 212, 191, 0.5);
     }
 
-    /* MONTE SEU PASSEIO (SIMULADOR RÁPIDO SEM PREÇOS) */
+    /* =====================================================================
+       GALERIA VISUAL BENTO 4K (SWIPE NO MOBILE + BENTO NO DESKTOP)
+       ===================================================================== */
+    .gallery-bento {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      margin: 0 -18px;
+      padding: 0 18px 8px;
+      scrollbar-width: none;
+    }
+
+    .gallery-bento::-webkit-scrollbar { display: none; }
+
+    @media (min-width: 900px) {
+      .gallery-bento {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 230px;
+        gap: 14px;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+      }
+    }
+
+    .gal-item {
+      flex: 0 0 82%;
+      scroll-snap-align: center;
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--abyss);
+      border: 1px solid rgba(94, 234, 212, 0.24);
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 16px 36px -14px rgba(0, 0, 0, 0.55);
+    }
+
+    @media (min-width: 900px) {
+      .gal-item { aspect-ratio: auto; }
+      .gal-span-7 { grid-column: span 7; grid-row: span 2; }
+      .gal-span-5 { grid-column: span 5; grid-row: span 1; }
+      .gal-span-4 { grid-column: span 4; grid-row: span 1; }
+    }
+
+    .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: transform 600ms var(--ease-out);
+    }
+
+    .gal-item:hover img { transform: scale(1.05); }
+
+    .gal-cap {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(3, 18, 28, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(94, 234, 212, 0.22);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .gal-cap small {
+      color: var(--teal-300);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+    }
+
+    /* =====================================================================
+       MONTE SEU PASSEIO (SIMULADOR RÁPIDO SEM PREÇOS)
+       ===================================================================== */
     .planner-shell {
       padding: 6px;
       border-radius: 30px;
-      background: linear-gradient(145deg, rgba(45, 212, 191, 0.26), rgba(251, 191, 36, 0.2));
-      border: 1px solid rgba(94, 234, 212, 0.34);
-      box-shadow: 0 28px 65px -20px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(145deg, rgba(45, 212, 191, 0.28), rgba(251, 191, 36, 0.22));
+      border: 1px solid rgba(94, 234, 212, 0.36);
+      box-shadow: 0 28px 65px -20px rgba(0, 0, 0, 0.65);
     }
 
     .planner-box {
@@ -897,18 +1415,18 @@
 
     .pill-selector {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
       gap: 8px;
     }
 
     .choice-btn {
-      text-align: left;
-      padding: 11px 14px;
+      padding: 11px 12px;
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1.5px solid rgba(94, 234, 212, 0.16);
-      color: #fff;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(94, 234, 212, 0.18);
+      text-align: left;
       transition: all 180ms var(--ease-out);
+      color: var(--text-light);
     }
 
     .choice-btn strong {
@@ -918,19 +1436,21 @@
     }
 
     .choice-btn span {
-      font-size: 0.72rem;
+      display: block;
+      font-size: 0.73rem;
       color: var(--text-dim);
+      margin-top: 2px;
     }
 
     .choice-btn.active {
-      background: rgba(20, 184, 166, 0.24);
+      background: rgba(45, 212, 191, 0.18);
       border-color: var(--teal-400);
       box-shadow: inset 0 0 0 1px var(--teal-400);
     }
 
     .stops-check-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
       gap: 8px;
     }
 
@@ -938,66 +1458,64 @@
       display: flex;
       align-items: center;
       gap: 9px;
-      padding: 11px 13px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1.5px solid rgba(94, 234, 212, 0.16);
+      padding: 10px 12px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(94, 234, 212, 0.18);
+      font-weight: 600;
+      font-size: 0.83rem;
       color: #fff;
-      font-size: 0.84rem;
-      font-weight: 700;
       transition: all 180ms var(--ease-out);
     }
 
-    .stop-check.active {
-      background: rgba(20, 184, 166, 0.25);
-      border-color: var(--teal-400);
-    }
-
-    .check-box {
-      width: 19px;
-      height: 19px;
+    .stop-check .check-box {
+      width: 20px;
+      height: 20px;
       border-radius: 6px;
-      border: 1.5px solid rgba(94, 234, 212, 0.45);
+      border: 1px solid rgba(94, 234, 212, 0.4);
       display: grid;
       place-items: center;
       font-size: 0.72rem;
+      color: transparent;
       flex-shrink: 0;
+    }
+
+    .stop-check.active {
+      background: rgba(45, 212, 191, 0.16);
+      border-color: var(--teal-400);
     }
 
     .stop-check.active .check-box {
       background: var(--teal-400);
       border-color: var(--teal-400);
       color: var(--abyss);
-      font-weight: 900;
+      font-weight: 800;
     }
 
     .steppers-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
       gap: 8px;
     }
 
-    @media (max-width: 480px) {
-      .steppers-row { grid-template-columns: 1fr; }
-    }
-
     .stepper-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(94, 234, 212, 0.16);
-      border-radius: 14px;
-      padding: 10px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(94, 234, 212, 0.18);
     }
 
     .stepper-info strong {
+      font-family: var(--font-display);
       font-size: 0.84rem;
       color: #fff;
     }
 
     .stepper-controls {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
     }
@@ -1005,93 +1523,97 @@
     .step-btn {
       width: 30px;
       height: 30px;
-      border-radius: 50%;
-      background: rgba(45, 212, 191, 0.18);
+      border-radius: 9px;
+      background: rgba(45, 212, 191, 0.16);
+      border: 1px solid rgba(94, 234, 212, 0.35);
       color: #fff;
       font-weight: 800;
+      font-size: 0.95rem;
       display: grid;
       place-items: center;
       transition: background-color 150ms ease, transform 150ms ease;
     }
 
-    .step-btn:hover { background: var(--teal-500); }
-    .step-btn:active { transform: scale(0.9); }
+    .step-btn:hover { background: var(--teal-400); color: var(--abyss); }
+    .step-btn:active { transform: scale(0.92); }
 
     .step-val {
-      min-width: 18px;
-      text-align: center;
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
+      min-width: 18px;
+      text-align: center;
       color: #fff;
     }
 
     .input-field {
       width: 100%;
       padding: 11px 14px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(94, 234, 212, 0.22);
+      border-radius: 13px;
+      background: rgba(3, 18, 28, 0.72);
+      border: 1px solid rgba(94, 234, 212, 0.25);
       color: #fff;
       font: inherit;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
+      color-scheme: dark;
     }
 
     .planner-summary {
-      background: linear-gradient(160deg, rgba(20, 184, 166, 0.16), rgba(3, 18, 28, 0.86));
-      border: 1.5px solid rgba(94, 234, 212, 0.34);
+      background: rgba(3, 18, 28, 0.76);
+      border: 1px solid rgba(94, 234, 212, 0.28);
       border-radius: 20px;
-      padding: 22px 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .summary-preview {
-      background: rgba(3, 18, 28, 0.82);
+      background: rgba(3, 18, 28, 0.86);
       border: 1px solid rgba(94, 234, 212, 0.22);
       border-radius: 14px;
       padding: 14px;
       font-size: 0.86rem;
       color: var(--sky-100);
-      line-height: 1.5;
-      margin: 10px 0 16px;
+      line-height: 1.48;
     }
 
-    /* BENTO EMBARCAÇÃO REAL G-TRIP */
+    /* EMBARCAÇÃO G-TRIP */
     .bento-pilot-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
+      align-items: stretch;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 920px) {
       .bento-pilot-grid {
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 26px;
-        align-items: stretch;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 24px;
       }
     }
 
-    .pilot-photos-shell {
+    .pilot-photos-shell,
+    .pilot-perks-shell {
       padding: 6px;
       border-radius: 28px;
       background: rgba(4, 24, 38, 0.12);
-      border: 1px solid rgba(13, 148, 136, 0.26);
-      display: flex;
+      border: 1px solid rgba(13, 148, 136, 0.25);
     }
 
     .pilot-photos-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
-      width: 100%;
-      border-radius: 22px;
-      overflow: hidden;
+      height: 100%;
     }
 
     .pilot-photos-grid figure {
-      position: relative;
+      border-radius: 22px;
       overflow: hidden;
-      min-height: 240px;
-      background: var(--deep);
+      background: var(--abyss);
+      aspect-ratio: 4 / 5;
+      border: 1px solid rgba(94, 234, 212, 0.22);
     }
 
     .pilot-photos-grid img {
@@ -1099,85 +1621,58 @@
       height: 100%;
       object-fit: cover;
       cursor: zoom-in;
-      transition: transform 500ms var(--ease-out);
+      transition: transform 600ms var(--ease-out);
     }
 
     .pilot-photos-grid figure:hover img { transform: scale(1.04); }
-
-    .pilot-perks-shell {
-      padding: 6px;
-      border-radius: 28px;
-      background: rgba(4, 24, 38, 0.12);
-      border: 1px solid rgba(13, 148, 136, 0.26);
-      display: flex;
-    }
 
     .pilot-perks-card {
       background: linear-gradient(155deg, #062133 0%, #03121C 100%);
       color: #fff;
       border-radius: 22px;
       padding: 24px 22px;
-      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-      .pilot-perks-card { padding: 30px 28px; }
+      gap: 18px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
     }
 
     .perks-list {
       list-style: none;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
 
-    @media (min-width: 540px) {
-      .perks-list { grid-template-columns: repeat(2, 1fr); }
-    }
-
     .perks-list li {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(94, 234, 212, 0.18);
+      border-radius: 14px;
+      padding: 11px 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.82rem;
       display: flex;
       align-items: center;
-      gap: 11px;
-      padding: 11px 13px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(94, 234, 212, 0.16);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--sky-100);
+      gap: 8px;
     }
 
-    .perk-ico {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--teal-400), var(--sky-500));
-      color: var(--abyss);
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      font-size: 1rem;
-    }
+    .perk-ico { font-size: 1.05rem; }
 
-    /* AVALIAÇÕES NO GOOGLE */
+    /* AVALIAÇÕES GOOGLE */
     .reviews-bar {
-      background: linear-gradient(135deg, #051D2D 0%, #093049 100%);
-      color: #fff;
+      background: rgba(7, 35, 54, 0.88);
+      border: 1px solid rgba(94, 234, 212, 0.24);
       border-radius: 22px;
       padding: 18px 22px;
-      border: 1px solid rgba(94, 234, 212, 0.28);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       margin-bottom: 18px;
-      box-shadow: 0 18px 40px -18px rgba(3, 18, 28, 0.4);
     }
 
     .rev-score {
@@ -1188,10 +1683,10 @@
 
     .rev-score strong {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 800;
       line-height: 1;
-      color: var(--gold-400);
+      color: #fff;
     }
 
     .rev-score div span {
@@ -1387,7 +1882,7 @@
     /* BANNER FINAL CINEMÁTICO */
     .final-banner {
       position: relative;
-      padding: 80px 0;
+      padding: 84px 0;
       text-align: center;
       color: #fff;
       overflow: hidden;
@@ -1555,7 +2050,8 @@
         </div>
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#roteiro">Paradas</a>
+        <a href="#roteiro">Carta de Rotas</a>
+        <a href="#galeria">Fotos 4K</a>
         <a href="#planejador">Monte seu Passeio</a>
         <a href="#embarcacao">O Barco</a>
         <a href="#avaliacoes">Avaliações</a>
@@ -1589,42 +2085,46 @@
           </h1>
 
           <p class="hero-lead hero-in">
-            Piscina natural, cachoeira no mar e Rio Guaraú saindo de Peruíbe.
+            Piscina natural esmeralda, cachoeira no mar e Rio Guaraú saindo de Peruíbe.
           </p>
 
           <div class="hero-actions hero-in">
-            <a href="#planejador" class="btn-primary">
+            <a href="#planejador" class="btn-primary magnetic">
               <span>Montar meu passeio</span>
               <span class="btn-icon-circle">→</span>
             </a>
-            <a href="https://wa.me/5513996645411?text=Ol%C3%A1%2C%20G-TRIP%20Adventure!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20o%20passeio%20de%20barco%20na%20Ilha%20do%20Guara%C3%BA." target="_blank" rel="noopener" class="btn-glass">
-              <span>Chamar no WhatsApp</span>
+            <a href="#roteiro" class="btn-glass">
+              <span>Explorar Rota no Radar</span>
             </a>
           </div>
         </div>
 
-        <!-- Card Náutico Compacto -->
+        <!-- Card Náutico de Telemetria no Hero -->
         <div class="hero-shell hero-in">
           <div class="hero-card">
+            <div class="hero-card-top">
+              <span class="live-beacon">Rota Guaraú Ativa</span>
+              <span>24°22'S · 47°01'W</span>
+            </div>
             <div class="hero-metrics">
               <div class="h-metric">
                 <b>4,8 <span>★</span></b>
                 <small>No Google</small>
               </div>
               <div class="h-metric">
-                <b>3 Paradas</b>
-                <small>Rio · Ilha · Cachoeira</small>
+                <b>4 Pontos</b>
+                <small>Rio · Barra · Praia · Ilha</small>
               </div>
               <div class="h-metric">
                 <b>Guaraú</b>
                 <small>Peruíbe · SP</small>
               </div>
             </div>
-            <div class="hero-radar">
+            <a href="#roteiro" class="hero-radar" title="Ver Carta Náutica Interativa">
               <span>⚓ Rio Guaraú</span>
               <div class="radar-track"><div class="radar-pulse"></div></div>
               <span>🏝️ Ilha do Guaraú</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -1634,50 +2134,226 @@
   <!-- FAIXA MARQUEE EM MOVIMENTO -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Ilha do Guaraú</span><span>Piscina Natural</span><span>Praia do Arpoador</span><span>Cachoeira no Mar</span><span>Rio Guaraú</span><span>Barco Privativo e Grupo</span><span>G-TRIP Adventure · 4,8 ★</span>
-      <span>Ilha do Guaraú</span><span>Piscina Natural</span><span>Praia do Arpoador</span><span>Cachoeira no Mar</span><span>Rio Guaraú</span><span>Barco Privativo e Grupo</span><span>G-TRIP Adventure · 4,8 ★</span>
+      <span>Ilha do Guaraú</span><span>Piscina Natural Esmeralda</span><span>Praia do Arpoador</span><span>Cachoeira no Mar</span><span>Rio Guaraú &amp; Manguezal</span><span>Barco Privativo e Grupo</span><span>G-TRIP Adventure · 4,8 ★</span>
+      <span>Ilha do Guaraú</span><span>Piscina Natural Esmeralda</span><span>Praia do Arpoador</span><span>Cachoeira no Mar</span><span>Rio Guaraú &amp; Manguezal</span><span>Barco Privativo e Grupo</span><span>G-TRIP Adventure · 4,8 ★</span>
     </div>
   </div>
 
-  <!-- PARADAS DO ROTEIRO -->
+  <!-- CARTA NÁUTICA INTERATIVA & PARADAS DO ROTEIRO -->
   <section class="section theme-lagoon" id="roteiro">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">Roteiro Náutico · Peruíbe</span>
-        <h2 class="sec-title">As paradas do <span class="serif-italic">passeio.</span></h2>
-        <p class="sec-sub">Saída do Rio Guaraú rumo às águas cristalinas da Ilha e à cachoeira na praia.</p>
+      <div class="sec-head-row reveal">
+        <div>
+          <span class="kicker">Carta Náutica Interativa · Peruíbe</span>
+          <h2 class="sec-title">O trajeto do <span class="serif-italic">passeio.</span></h2>
+          <p class="sec-sub">Toque nas paradas do radar ou simule a navegação do Rio Guaraú até a Ilha.</p>
+        </div>
       </div>
 
-      <!-- Barra Náutica de Trajeto -->
-      <div class="route-map-shell reveal">
-        <div class="route-map-bar">
+      <!-- RADAR NÁUTICO INTERATIVO (SVG + TELEMETRIA AO VIVO) -->
+      <div class="nautical-radar-shell reveal">
+        <div class="nautical-radar-card">
+          <!-- Abas de Roteiro + Simular Travessia -->
+          <div class="radar-topbar">
+            <div class="route-mode-tabs" role="tablist" aria-label="Modos de roteiro">
+              <button type="button" class="route-mode-btn active" data-mode="completo" onclick="setRouteMode('completo', this)">
+                <span>🧭 Roteiro Completo (4 Pontos)</span>
+              </button>
+              <button type="button" class="route-mode-btn" data-mode="ilha" onclick="selectWaypoint(3, true)">
+                <span>🏝️ Piscina da Ilha</span>
+              </button>
+              <button type="button" class="route-mode-btn" data-mode="arpoador" onclick="selectWaypoint(2, true)">
+                <span>💦 Cachoeira no Arpoador</span>
+              </button>
+              <button type="button" class="route-mode-btn" data-mode="rio" onclick="selectWaypoint(1, true)">
+                <span>🌿 Rio Guaraú &amp; Barra</span>
+              </button>
+            </div>
+
+            <button type="button" class="btn-simular-rota" id="btnSimularRota" onclick="toggleRouteSimulation()">
+              <span id="simularIcon">▶</span>
+              <span id="simularText">Simular Travessia</span>
+            </button>
+          </div>
+
+          <!-- Palco Principal: Mapa SVG Náutico + Inspetor da Parada -->
+          <div class="radar-stage">
+            <div class="chart-viewport">
+              <div class="sonar-sweep" aria-hidden="true"></div>
+
+              <div class="chart-hud-top">
+                <span class="hud-tag">RADAR G-TRIP · RESERVA DA JURÉIA</span>
+                <span class="hud-tag" id="hudStatus">PARADA 04/04 · ILHA DO GUARAÚ</span>
+              </div>
+
+              <!-- SVG Carta Náutica Guaraú -->
+              <svg class="nautical-svg" viewBox="0 0 760 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa náutico interativo do trajeto entre o Rio Guaraú, Praia do Arpoador e Ilha do Guaraú">
+                <defs>
+                  <linearGradient id="routeGlowGrad" x1="65" y1="230" x2="635" y2="115" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FBBF24"/>
+                    <stop offset="50%" stop-color="#2DD4BF"/>
+                    <stop offset="100%" stop-color="#38BDF8"/>
+                  </linearGradient>
+                  <radialGradient id="islandWaterGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.42"/>
+                    <stop offset="100%" stop-color="#2DD4BF" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                  </filter>
+                </defs>
+
+                <!-- Grade Náutica e Anéis de Sonar -->
+                <g stroke="rgba(94,234,212,0.11)" stroke-width="1">
+                  <line x1="0" y1="80" x2="760" y2="80" stroke-dasharray="4 6"/>
+                  <line x1="0" y1="160" x2="760" y2="160" stroke-dasharray="4 6"/>
+                  <line x1="0" y1="240" x2="760" y2="240" stroke-dasharray="4 6"/>
+                  <line x1="190" y1="0" x2="190" y2="320" stroke-dasharray="4 6"/>
+                  <line x1="380" y1="0" x2="380" y2="320" stroke-dasharray="4 6"/>
+                  <line x1="570" y1="0" x2="570" y2="320" stroke-dasharray="4 6"/>
+                  <circle cx="420" cy="160" r="70"/>
+                  <circle cx="420" cy="160" r="135"/>
+                  <circle cx="420" cy="160" r="195"/>
+                </g>
+
+                <!-- Contorno da Costa / Serra da Juréia (Esquerda/Topo) -->
+                <path d="M 0 0 L 430 0 C 410 42, 375 68, 340 82 C 295 100, 260 120, 225 162 C 195 198, 140 220, 95 258 C 60 288, 25 305, 0 315 Z"
+                      fill="rgba(13, 148, 136, 0.14)" stroke="rgba(94, 234, 212, 0.35)" stroke-width="1.5"/>
+
+                <!-- Canal do Rio Guaraú -->
+                <path d="M 0 238 Q 62 232, 110 215 T 218 192"
+                      stroke="rgba(56, 189, 248, 0.28)" stroke-width="22" stroke-linecap="round"/>
+
+                <!-- Queda d'água na Praia do Arpoador -->
+                <path d="M 305 26 Q 325 58, 338 82" stroke="#7DD3FC" stroke-width="3" stroke-dasharray="3 3"/>
+
+                <!-- Brilho da Piscina Natural na Ilha do Guaraú (Direita) -->
+                <circle cx="628" cy="118" r="68" fill="url(#islandWaterGlow)"/>
+
+                <!-- Silhueta da Ilha do Guaraú + Piscina de Rochas -->
+                <path d="M 605 82 C 638 72, 678 88, 686 118 C 692 146, 662 168, 626 164 C 596 160, 582 138, 588 112 C 592 96, 594 86, 605 82 Z"
+                      fill="rgba(20, 184, 166, 0.26)" stroke="#5EEAD4" stroke-width="2"/>
+                <circle cx="614" cy="122" r="16" fill="rgba(56, 189, 248, 0.38)" stroke="#7DD3FC" stroke-width="1.2" stroke-dasharray="2 2"/>
+
+                <!-- Linha Guia Base da Rota (Pontilhada) -->
+                <path d="M 78 228 C 138 222, 176 208, 222 190 C 275 168, 298 118, 344 96 C 425 58, 528 132, 616 120"
+                      stroke="rgba(255, 255, 255, 0.2)" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
+
+                <!-- Linha Ativa Animada da Rota -->
+                <path id="svgRouteActive"
+                      d="M 78 228 C 138 222, 176 208, 222 190 C 275 168, 298 118, 344 96 C 425 58, 528 132, 616 120"
+                      stroke="url(#routeGlowGrad)" stroke-width="4.5" stroke-linecap="round" filter="url(#neonGlow)"
+                      stroke-dasharray="620" stroke-dashoffset="0"/>
+
+                <!-- WAYPOINT 0: EMBARQUE RIO GUARAÚ -->
+                <g class="map-waypoint" data-wp="0" onclick="selectWaypoint(0, true)">
+                  <circle class="wp-ring" cx="78" cy="228" r="16" fill="rgba(251, 191, 36, 0.28)"/>
+                  <circle class="wp-core" cx="78" cy="228" r="8" fill="#FBBF24" stroke="#03121C" stroke-width="2"/>
+                  <rect class="wp-label-bg" x="24" y="246" width="112" height="24" rx="12" fill="rgba(3,18,28,0.88)" stroke="rgba(251,191,36,0.55)"/>
+                  <text class="wp-label-txt" x="80" y="262" text-anchor="middle" fill="#FEF3C7" font-family="Bricolage Grotesque, sans-serif" font-size="11" font-weight="700">⚓ 1. Rio Guaraú</text>
+                </g>
+
+                <!-- WAYPOINT 1: MANGUEZAL & BARRA -->
+                <g class="map-waypoint" data-wp="1" onclick="selectWaypoint(1, true)">
+                  <circle class="wp-ring" cx="222" cy="190" r="16" fill="rgba(45, 212, 191, 0.25)"/>
+                  <circle class="wp-core" cx="222" cy="190" r="8" fill="#2DD4BF" stroke="#03121C" stroke-width="2"/>
+                  <rect class="wp-label-bg" x="164" y="208" width="118" height="24" rx="12" fill="rgba(3,18,28,0.88)" stroke="rgba(94,234,212,0.45)"/>
+                  <text class="wp-label-txt" x="223" y="224" text-anchor="middle" fill="#E0F7FA" font-family="Bricolage Grotesque, sans-serif" font-size="11" font-weight="700">🌿 2. Barra &amp; Rio</text>
+                </g>
+
+                <!-- WAYPOINT 2: PRAIA DO ARPOADOR (CACHOEIRA) -->
+                <g class="map-waypoint" data-wp="2" onclick="selectWaypoint(2, true)">
+                  <circle class="wp-ring" cx="344" cy="96" r="16" fill="rgba(45, 212, 191, 0.25)"/>
+                  <circle class="wp-core" cx="344" cy="96" r="8" fill="#2DD4BF" stroke="#03121C" stroke-width="2"/>
+                  <rect class="wp-label-bg" x="278" y="54" width="132" height="24" rx="12" fill="rgba(3,18,28,0.88)" stroke="rgba(94,234,212,0.45)"/>
+                  <text class="wp-label-txt" x="344" y="70" text-anchor="middle" fill="#E0F7FA" font-family="Bricolage Grotesque, sans-serif" font-size="11" font-weight="700">💦 3. Arpoador</text>
+                </g>
+
+                <!-- WAYPOINT 3: ILHA DO GUARAÚ (PISCINA NATURAL) -->
+                <g class="map-waypoint active" data-wp="3" onclick="selectWaypoint(3, true)">
+                  <circle class="wp-ring" cx="616" cy="120" r="20" fill="rgba(45, 212, 191, 0.32)"/>
+                  <circle class="wp-core" cx="616" cy="120" r="9" fill="#2DD4BF" stroke="#03121C" stroke-width="2"/>
+                  <rect class="wp-label-bg" x="546" y="142" width="142" height="26" rx="13" fill="rgba(3,18,28,0.9)" stroke="rgba(94,234,212,0.55)"/>
+                  <text class="wp-label-txt" x="617" y="159" text-anchor="middle" fill="#E0F7FA" font-family="Bricolage Grotesque, sans-serif" font-size="11.5" font-weight="800">🏝️ 4. Ilha do Guaraú</text>
+                </g>
+
+                <!-- Marcador Móvel da Embarcação G-TRIP -->
+                <g id="boatMarker" transform="translate(616, 120)" style="pointer-events: none;">
+                  <circle r="15" fill="#03121C" stroke="#FBBF24" stroke-width="2.5"/>
+                  <text x="0" y="4" text-anchor="middle" font-size="13">🚤</text>
+                </g>
+              </svg>
+
+              <div class="chart-hud-bottom">
+                <span class="hud-tag">🧭 TRAVESSIA SEGURA COM MESTRE LOCAL</span>
+                <span class="hud-tag" id="hudCoords">24°22'43"S · 47°01'20"W</span>
+              </div>
+            </div>
+
+            <!-- Painel Inspetor da Parada Selecionada -->
+            <aside class="waypoint-inspector" aria-live="polite">
+              <div>
+                <div class="inspector-photo">
+                  <span class="inspector-badge" id="inspBadge">Parada Principal · 04</span>
+                  <img src="img/ilha-guarau-hero.webp" alt="Piscina natural da Ilha do Guaraú" id="inspImg">
+                  <span class="inspector-coords" id="inspCoords">Ilha do Guaraú · SP</span>
+                </div>
+                <div style="margin-top: 12px;">
+                  <h3 class="inspector-title" id="inspTitle">Ilha do Guaraú (Piscina Natural)</h3>
+                  <p class="inspector-desc" id="inspDesc">
+                    Aquário natural protegido por rochas com águas verde-esmeralda cristalinas para mergulho livre e flutuação.
+                  </p>
+                </div>
+              </div>
+
+              <div class="inspector-metrics">
+                <div class="insp-pill">
+                  <small>Condição da Água</small>
+                  <b id="inspWater">Cristalina &amp; Abrigada</b>
+                </div>
+                <div class="insp-pill">
+                  <small>Destaque</small>
+                  <b id="inspHighlight">Mergulho &amp; Banho</b>
+                </div>
+              </div>
+
+              <button type="button" class="stop-btn" id="inspActionBtn" style="width: 100%; justify-content: space-between;" onclick="selectStopInPlanner('Ilha do Guaraú')">
+                <span id="inspBtnText">Incluir Ilha do Guaraú no passeio</span>
+                <span>→</span>
+              </button>
+            </aside>
+          </div>
+
+          <!-- Nós Clicáveis de Acesso Rápido -->
           <div class="route-nodes">
-            <div class="route-node">
-              <span class="node-dot gold">⚓</span>
-              <div><b>Embarque</b><small>Rio Guaraú</small></div>
-            </div>
-            <div class="route-node">
-              <span class="node-dot">01</span>
-              <div><b>Ilha do Guaraú</b><small>Piscina natural</small></div>
-            </div>
-            <div class="route-node">
+            <button type="button" class="route-node" data-node="0" onclick="selectWaypoint(0, true)">
+              <span class="node-dot">⚓</span>
+              <div><b>1. Embarque</b><small>Píer Rio Guaraú</small></div>
+            </button>
+            <button type="button" class="route-node" data-node="1" onclick="selectWaypoint(1, true)">
               <span class="node-dot">02</span>
-              <div><b>Praia do Arpoador</b><small>Cachoeira no mar</small></div>
-            </div>
-            <div class="route-node">
+              <div><b>2. Barra &amp; Rio</b><small>Manguezal calmo</small></div>
+            </button>
+            <button type="button" class="route-node" data-node="2" onclick="selectWaypoint(2, true)">
               <span class="node-dot">03</span>
-              <div><b>Manguezal</b><small>Águas calmas</small></div>
-            </div>
+              <div><b>3. Arpoador</b><small>Cachoeira no mar</small></div>
+            </button>
+            <button type="button" class="route-node active" data-node="3" onclick="selectWaypoint(3, true)">
+              <span class="node-dot">04</span>
+              <div><b>4. Ilha do Guaraú</b><small>Piscina natural</small></div>
+            </button>
           </div>
         </div>
       </div>
 
+      <!-- CARDS EDITORIAIS DAS 3 PARADAS -->
       <div class="stops-stack">
         <!-- 1. ILHA DO GUARAÚ -->
-        <div class="stop-shell reveal">
+        <div class="stop-shell reveal" id="stop-card-3">
           <article class="stop-card">
             <div class="stop-photo">
-              <span class="stop-badge">Parada 01</span>
+              <span class="stop-badge">Parada 01 · Destaque</span>
               <picture>
                 <source srcset="img/ilha-guarau-hero.webp" type="image/webp">
                 <img src="img/ilha-guarau-hero.jpg" alt="Piscina natural na Ilha do Guaraú em Peruíbe SP" loading="lazy" data-lightbox>
@@ -1690,7 +2366,7 @@
               </div>
               <h3 class="stop-title">Ilha do Guaraú</h3>
               <p class="stop-text">
-                Aquário natural protegido pelas rochas, com águas verdes e calmas para banho.
+                Aquário natural protegido pelas rochas, com águas verdes e calmas para banho e flutuação.
               </p>
               <button type="button" class="stop-btn" onclick="selectStopInPlanner('Ilha do Guaraú')">
                 <span>Incluir no passeio</span>
@@ -1701,10 +2377,10 @@
         </div>
 
         <!-- 2. PRAIA DO ARPOADOR -->
-        <div class="stop-shell reveal">
+        <div class="stop-shell reveal" id="stop-card-2">
           <article class="stop-card">
             <div class="stop-photo">
-              <span class="stop-badge">Parada 02</span>
+              <span class="stop-badge">Parada 02 · Juréia</span>
               <picture>
                 <source srcset="img/arpoador-cachoeira.webp" type="image/webp">
                 <img src="img/arpoador-cachoeira.jpg" alt="Praia do Arpoador com cachoeira no mar em Peruíbe SP" loading="lazy" data-lightbox>
@@ -1728,10 +2404,10 @@
         </div>
 
         <!-- 3. RIO GUARAÚ & MANGUEZAL -->
-        <div class="stop-shell reveal">
+        <div class="stop-shell reveal" id="stop-card-1">
           <article class="stop-card">
             <div class="stop-photo">
-              <span class="stop-badge">Parada 03</span>
+              <span class="stop-badge">Parada 03 · Travessia</span>
               <picture>
                 <source srcset="img/barco-gtrip-rio.webp" type="image/webp">
                 <img src="img/barco-gtrip-rio.jpg" alt="Barco da G-TRIP Adventure navegando no Rio Guaraú em Peruíbe" loading="lazy" data-lightbox>
@@ -1757,14 +2433,95 @@
     </div>
   </section>
 
+  <!-- GALERIA VISUAL BENTO 4K -->
+  <section class="section theme-sapphire" id="galeria">
+    <div class="wrap">
+      <div class="sec-head-row reveal">
+        <div>
+          <span class="kicker">Galeria Real · 4K</span>
+          <h2 class="sec-title">Águas verdes da <span class="serif-italic">Juréia.</span></h2>
+          <p class="sec-sub">Toque em qualquer foto para ampliar em tela cheia.</p>
+        </div>
+      </div>
+
+      <div class="gallery-bento">
+        <figure class="gal-item gal-span-7 reveal">
+          <picture>
+            <source srcset="img/piscina-natural.webp" type="image/webp">
+            <img src="img/piscina-natural.jpg" alt="Piscina natural de águas verdes cristalinas na Ilha do Guaraú" loading="lazy" data-lightbox>
+          </picture>
+          <figcaption class="gal-cap">
+            <span>Piscina Natural · Ilha do Guaraú</span>
+            <small>AMPLIAR ↗</small>
+          </figcaption>
+        </figure>
+
+        <figure class="gal-item gal-span-5 reveal">
+          <picture>
+            <source srcset="img/barco-gtrip-ilha.webp" type="image/webp">
+            <img src="img/barco-gtrip-ilha.jpg" alt="Barco G-TRIP Adventure ancorado na Ilha do Guaraú" loading="lazy" data-lightbox>
+          </picture>
+          <figcaption class="gal-cap">
+            <span>Embarcação G-TRIP na Ilha</span>
+            <small>AMPLIAR ↗</small>
+          </figcaption>
+        </figure>
+
+        <figure class="gal-item gal-span-5 reveal">
+          <picture>
+            <source srcset="img/pedras-turquesa.webp" type="image/webp">
+            <img src="img/pedras-turquesa.jpg" alt="Águas turquesas e rochas protegidas na Ilha do Guaraú" loading="lazy" data-lightbox>
+          </picture>
+          <figcaption class="gal-cap">
+            <span>Águas Esmeraldas entre as Rochas</span>
+            <small>AMPLIAR ↗</small>
+          </figcaption>
+        </figure>
+
+        <figure class="gal-item gal-span-4 reveal">
+          <picture>
+            <source srcset="img/arpoador-cachoeira.webp" type="image/webp">
+            <img src="img/arpoador-cachoeira.jpg" alt="Cachoeira caindo na areia da Praia do Arpoador em Peruíbe" loading="lazy" data-lightbox>
+          </picture>
+          <figcaption class="gal-cap">
+            <span>Cachoeira no Mar · Arpoador</span>
+            <small>AMPLIAR ↗</small>
+          </figcaption>
+        </figure>
+
+        <figure class="gal-item gal-span-4 reveal">
+          <picture>
+            <source srcset="img/costa-aerea-4k.webp" type="image/webp">
+            <img src="img/costa-aerea-4k.jpg" alt="Vista aérea da costa preservada de Peruíbe e Reserva da Juréia" loading="lazy" data-lightbox>
+          </picture>
+          <figcaption class="gal-cap">
+            <span>Costa Preservada · Reserva da Juréia</span>
+            <small>AMPLIAR ↗</small>
+          </figcaption>
+        </figure>
+
+        <figure class="gal-item gal-span-4 reveal">
+          <picture>
+            <source srcset="img/ilha-mata.webp" type="image/webp">
+            <img src="img/ilha-mata.jpg" alt="Mata Atlântica preservada na Ilha do Guaraú em Peruíbe" loading="lazy" data-lightbox>
+          </picture>
+          <figcaption class="gal-cap">
+            <span>Natureza Intocada · Guaraú</span>
+            <small>AMPLIAR ↗</small>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- MONTE SEU PASSEIO (SEM PREÇOS) -->
-  <section class="section theme-sapphire" id="planejador">
+  <section class="section theme-lagoon" id="planejador">
     <div class="wrap">
       <div class="planner-shell reveal">
         <div class="planner-box">
-          <span class="kicker">Simulador Rápido</span>
-          <h2 class="sec-title">Monte seu <span class="serif-italic">passeio.</span></h2>
-          <p class="sec-sub">Escolha paradas e passageiros para enviar pronto no WhatsApp.</p>
+          <span class="kicker" style="background: rgba(45,212,191,0.14); color: var(--teal-300); border-color: rgba(94,234,212,0.3);">Simulador Rápido · Sem Compromisso</span>
+          <h2 class="sec-title" style="color: #fff;">Monte seu <span class="serif-italic" style="color: var(--teal-300);">passeio.</span></h2>
+          <p class="sec-sub" style="color: var(--text-dim);">Escolha paradas e passageiros para enviar pronto no WhatsApp.</p>
 
           <div class="planner-grid">
             <div>
@@ -1785,7 +2542,7 @@
 
               <!-- 2. Paradas -->
               <div class="planner-group">
-                <label class="planner-label">2. Paradas</label>
+                <label class="planner-label">2. Paradas desejadas</label>
                 <div class="stops-check-grid" id="stopsSelector">
                   <button type="button" class="stop-check active" data-stop="Ilha do Guaraú">
                     <span class="check-box">✓</span>
@@ -1809,18 +2566,27 @@
                   <div class="stepper-card">
                     <div class="stepper-info"><strong>Adultos</strong></div>
                     <div class="stepper-controls">
-                      <button type="button" class="step-btn" onclick="changeStep('adultos', -1)">−</button>
+                      <button type="button" class="step-btn" onclick="changeStep('adultos', -1)" aria-label="Diminuir adultos">−</button>
                       <span class="step-val" id="val-adultos">4</span>
-                      <button type="button" class="step-btn" onclick="changeStep('adultos', 1)">+</button>
+                      <button type="button" class="step-btn" onclick="changeStep('adultos', 1)" aria-label="Aumentar adultos">+</button>
                     </div>
                   </div>
 
                   <div class="stepper-card">
                     <div class="stepper-info"><strong>Crianças</strong></div>
                     <div class="stepper-controls">
-                      <button type="button" class="step-btn" onclick="changeStep('criancas', -1)">−</button>
+                      <button type="button" class="step-btn" onclick="changeStep('criancas', -1)" aria-label="Diminuir crianças">−</button>
                       <span class="step-val" id="val-criancas">0</span>
-                      <button type="button" class="step-btn" onclick="changeStep('criancas', 1)">+</button>
+                      <button type="button" class="step-btn" onclick="changeStep('criancas', 1)" aria-label="Aumentar crianças">+</button>
+                    </div>
+                  </div>
+
+                  <div class="stepper-card">
+                    <div class="stepper-info"><strong>Pet 🐾</strong></div>
+                    <div class="stepper-controls">
+                      <button type="button" class="step-btn" onclick="changeStep('pets', -1)" aria-label="Diminuir pets">−</button>
+                      <span class="step-val" id="val-pets">0</span>
+                      <button type="button" class="step-btn" onclick="changeStep('pets', 1)" aria-label="Aumentar pets">+</button>
                     </div>
                   </div>
                 </div>
@@ -1836,6 +2602,9 @@
                   <button type="button" class="choice-btn" data-val="Tarde">
                     <strong>🌅 Tarde</strong>
                   </button>
+                  <button type="button" class="choice-btn" data-val="Horário Flexível">
+                    <strong>🕒 Flexível</strong>
+                  </button>
                 </div>
                 <input type="date" id="pData" class="input-field" aria-label="Data do passeio">
               </div>
@@ -1847,8 +2616,8 @@
               <div class="summary-preview" id="pResumo">
                 Olá, G-TRIP Adventure! Estou com 4 adultos e queria marcar um passeio (Barco Privativo), período Manhã, conhecendo: Ilha do Guaraú, Praia do Arpoador, Rio Guaraú &amp; Manguezal.
               </div>
-              <a href="https://wa.me/5513996645411" target="_blank" rel="noopener" id="btnEnviarWa" class="btn-primary" style="width: 100%;">
-                <span>Chamar no WhatsApp</span>
+              <a href="https://wa.me/5513996645411" target="_blank" rel="noopener" id="btnEnviarWa" class="btn-primary magnetic" style="width: 100%;">
+                <span>Consultar no WhatsApp</span>
                 <span class="btn-icon-circle">→</span>
               </a>
             </aside>
@@ -1859,7 +2628,7 @@
   </section>
 
   <!-- EMBARCAÇÃO REAL G-TRIP -->
-  <section class="section theme-lagoon" id="embarcacao">
+  <section class="section theme-sapphire" id="embarcacao">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="kicker">Fotos Reais · G-TRIP Adventure</span>
@@ -1867,7 +2636,7 @@
       </div>
 
       <div class="bento-pilot-grid">
-        <div class="pilot-photos-shell reveal">
+        <div class="pilot-photos-shell reveal" style="background: rgba(45,212,191,0.1); border-color: rgba(94,234,212,0.28);">
           <div class="pilot-photos-grid">
             <figure>
               <picture>
@@ -1884,7 +2653,7 @@
           </div>
         </div>
 
-        <div class="pilot-perks-shell reveal">
+        <div class="pilot-perks-shell reveal" style="background: rgba(45,212,191,0.1); border-color: rgba(94,234,212,0.28);">
           <div class="pilot-perks-card">
             <div>
               <h3 style="font-family: var(--font-display); font-size: 1.45rem; margin-bottom: 6px;">G-TRIP Adventure · Guaraú</h3>
@@ -1893,12 +2662,12 @@
 
             <ul class="perks-list">
               <li><span class="perk-ico">👨‍✈️</span>Mestre Experiente</li>
-              <li><span class="perk-ico">🦺</span>Coletes Salva-Vidas</li>
+              <li><span class="perk-ico">🦺</span>Coletes Homologados</li>
               <li><span class="perk-ico">🏝️</span>Paradas p/ Banho</li>
               <li><span class="perk-ico">👨‍👩‍👧</span>Ideal p/ Famílias</li>
             </ul>
 
-            <a href="https://wa.me/5513996645411?text=Ol%C3%A1%2C%20G-TRIP%20Adventure!%20Quero%20agendar%20um%20passeio%20de%20barco%20no%20Guara%C3%BA." target="_blank" rel="noopener" class="btn-primary">
+            <a href="https://wa.me/5513996645411?text=Ol%C3%A1%2C%20G-TRIP%20Adventure!%20Quero%20agendar%20um%20passeio%20de%20barco%20no%20Guara%C3%BA." target="_blank" rel="noopener" class="btn-primary magnetic">
               <span>Reservar no WhatsApp</span>
               <span class="btn-icon-circle">→</span>
             </a>
@@ -1909,7 +2678,7 @@
   </section>
 
   <!-- AVALIAÇÕES NO GOOGLE -->
-  <section class="section theme-sapphire" id="avaliacoes">
+  <section class="section theme-lagoon" id="avaliacoes">
     <div class="wrap">
       <div class="reviews-bar reveal">
         <div class="rev-score">
@@ -1953,15 +2722,15 @@
   </section>
 
   <!-- EMBARQUE & PERGUNTAS FREQUENTES -->
-  <section class="section theme-lagoon" id="embarque">
+  <section class="section theme-sapphire" id="embarque">
     <div class="wrap where-faq-grid">
       <!-- Mapa de Embarque -->
-      <div class="map-shell reveal">
+      <div class="map-shell reveal" style="background: rgba(45,212,191,0.12); border-color: rgba(94,234,212,0.3);">
         <div class="map-card">
           <div class="map-info">
             <div>
-              <span class="kicker" style="background: rgba(45,212,191,0.14); color: var(--teal-300); border-color: rgba(94,234,212,0.3);">Ponto de Embarque</span>
-              <h2 class="sec-title" style="font-size: clamp(1.45rem, 3vw, 2rem); color: #fff;">Rio Guaraú · <span class="serif-italic" style="color: var(--teal-300);">Peruíbe.</span></h2>
+              <span class="kicker">Ponto de Embarque</span>
+              <h2 class="sec-title" style="font-size: clamp(1.45rem, 3vw, 2rem); color: #fff;">Rio Guaraú · <span class="serif-italic">Peruíbe.</span></h2>
             </div>
             <ul class="info-pills">
               <li><small>Localização</small><b>Rio Guaraú — Praia do Guaraú, Peruíbe - SP</b></li>
@@ -1969,7 +2738,7 @@
               <li><small>WhatsApp</small><b>(13) 99664-5411</b></li>
             </ul>
             <div>
-              <a href="https://www.google.com/maps?cid=8797723770506479288" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <a href="https://www.google.com/maps?cid=8797723770506479288" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic">
                 <span>Abrir no Google Maps</span>
                 <span class="btn-icon-circle">↗</span>
               </a>
@@ -2002,7 +2771,7 @@
           </details>
           <details class="faq-item reveal">
             <summary>Qual o melhor horário?</summary>
-            <p>Pela manhã o mar costuma estar mais calmo e a água mais cristalina.</p>
+            <p>Pela manhã o mar costuma estar mais calmo e a água da piscina natural mais cristalina.</p>
           </details>
           <details class="faq-item reveal">
             <summary>O que levar no passeio?</summary>
@@ -2027,7 +2796,7 @@
       <p class="sec-sub" style="margin: 0 auto 22px; color: var(--sky-100);">
         Fale direto no WhatsApp e agende sua saída no Guaraú.
       </p>
-      <a href="https://wa.me/5513996645411?text=Ol%C3%A1%2C%20G-TRIP%20Adventure!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20passeio%20de%20barco%20no%20Guara%C3%BA." target="_blank" rel="noopener" class="btn-primary">
+      <a href="https://wa.me/5513996645411?text=Ol%C3%A1%2C%20G-TRIP%20Adventure!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20passeio%20de%20barco%20no%20Guara%C3%BA." target="_blank" rel="noopener" class="btn-primary magnetic">
         <span>Chamar no WhatsApp</span>
         <span class="btn-icon-circle">→</span>
       </a>
@@ -2060,11 +2829,215 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
   <script>
+    /* =====================================================================
+       DADOS DO RADAR NÁUTICO INTERATIVO (4 WAYPOINTS REAIS DO GUARAÚ)
+       ===================================================================== */
+    const WAYPOINTS = [
+      {
+        id: 0,
+        x: 78,
+        y: 228,
+        dashOffset: 540,
+        hud: 'PARADA 01/04 · EMBARQUE RIO GUARAÚ',
+        coords: '24°22\'43"S · 47°01\'20"W',
+        badge: 'Ponto 01 · Embarque',
+        title: 'Píer do Rio Guaraú',
+        desc: 'Saída tranquila pelas águas abrigadas do Rio Guaraú, com embarque seguro para famílias e crianças.',
+        water: 'Águas Calmas do Rio',
+        highlight: 'Embarque Seguro',
+        img: 'img/barco-gtrip-rio.webp',
+        stopName: 'Rio Guaraú & Manguezal',
+        cardId: 'stop-card-1'
+      },
+      {
+        id: 1,
+        x: 222,
+        y: 190,
+        dashOffset: 410,
+        hud: 'PARADA 02/04 · BARRA & MANGUEZAL',
+        coords: '24°22\'35"S · 47°00\'58"W',
+        badge: 'Ponto 02 · Travessia',
+        title: 'Rio Guaraú & Encontro com o Mar',
+        desc: 'Navegação panorâmica entre o manguezal preservado, bancos de areia e o pé da Serra da Juréia.',
+        water: 'Encontro Rio & Mar',
+        highlight: 'Visual da Serra',
+        img: 'img/barco-gtrip-rio.webp',
+        stopName: 'Rio Guaraú & Manguezal',
+        cardId: 'stop-card-1'
+      },
+      {
+        id: 2,
+        x: 344,
+        y: 96,
+        dashOffset: 245,
+        hud: 'PARADA 03/04 · PRAIA DO ARPOADOR',
+        coords: '24°23\'12"S · 47°00\'42"W',
+        badge: 'Ponto 03 · Reserva da Juréia',
+        title: 'Praia do Arpoador (Cachoeira no Mar)',
+        desc: 'Praia selvagem onde uma cachoeira de água doce da Mata Atlântica deságua direto na areia do mar.',
+        water: 'Água Doce + Mar',
+        highlight: 'Cachoeira na Areia',
+        img: 'img/arpoador-cachoeira.webp',
+        stopName: 'Praia do Arpoador',
+        cardId: 'stop-card-2'
+      },
+      {
+        id: 3,
+        x: 616,
+        y: 120,
+        dashOffset: 0,
+        hud: 'PARADA 04/04 · ILHA DO GUARAÚ',
+        coords: '24°23\'04"S · 46°59\'38"W',
+        badge: 'Ponto 04 · Piscina Natural',
+        title: 'Ilha do Guaraú (Piscina Natural)',
+        desc: 'Aquário natural protegido por rochas com águas verde-esmeralda cristalinas para mergulho livre e flutuação.',
+        water: 'Cristalina & Abrigada',
+        highlight: 'Mergulho & Flutuação',
+        img: 'img/ilha-guarau-hero.webp',
+        stopName: 'Ilha do Guaraú',
+        cardId: 'stop-card-3'
+      }
+    ];
+
+    let currentWp = 3;
+    let simTimer = null;
+
+    window.selectWaypoint = function(index, stopSim = false) {
+      if (stopSim && simTimer) stopRouteSimulation();
+      currentWp = index;
+      const wp = WAYPOINTS[index] || WAYPOINTS[3];
+
+      // Atualiza pinos do SVG
+      document.querySelectorAll('.map-waypoint').forEach(el => {
+        el.classList.toggle('active', Number(el.dataset.wp) === index);
+      });
+
+      // Atualiza nós inferiores
+      document.querySelectorAll('.route-node').forEach(el => {
+        el.classList.toggle('active', Number(el.dataset.node) === index);
+      });
+
+      // Atualiza abas superiores
+      const modeMap = { 1: 'rio', 2: 'arpoador', 3: 'ilha' };
+      document.querySelectorAll('.route-mode-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === (modeMap[index] || 'completo'));
+      });
+
+      // Move o barco e anima a trilha no SVG
+      const boat = document.getElementById('boatMarker');
+      const activePath = document.getElementById('svgRouteActive');
+      if (window.gsap && boat && activePath) {
+        gsap.to(boat, {
+          attr: { transform: `translate(${wp.x}, ${wp.y})` },
+          duration: 0.75,
+          ease: 'power3.out'
+        });
+        gsap.to(activePath, {
+          strokeDashoffset: wp.dashOffset,
+          duration: 0.75,
+          ease: 'power2.out'
+        });
+      } else if (boat && activePath) {
+        boat.setAttribute('transform', `translate(${wp.x}, ${wp.y})`);
+        activePath.style.strokeDashoffset = wp.dashOffset;
+      }
+
+      // Atualiza painel de telemetria
+      const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      setTxt('hudStatus', wp.hud);
+      setTxt('hudCoords', wp.coords);
+      setTxt('inspBadge', wp.badge);
+      setTxt('inspCoords', wp.coords);
+      setTxt('inspTitle', wp.title);
+      setTxt('inspDesc', wp.desc);
+      setTxt('inspWater', wp.water);
+      setTxt('inspHighlight', wp.highlight);
+      setTxt('inspBtnText', `Incluir ${wp.stopName} no passeio`);
+
+      const imgEl = document.getElementById('inspImg');
+      if (imgEl && imgEl.getAttribute('src') !== wp.img) {
+        if (window.gsap) {
+          gsap.to(imgEl, {
+            opacity: 0.2,
+            duration: 0.15,
+            onComplete: () => {
+              imgEl.src = wp.img;
+              gsap.to(imgEl, { opacity: 1, duration: 0.25 });
+            }
+          });
+        } else {
+          imgEl.src = wp.img;
+        }
+      }
+
+      const actionBtn = document.getElementById('inspActionBtn');
+      if (actionBtn) {
+        actionBtn.onclick = () => selectStopInPlanner(wp.stopName);
+      }
+
+      // Destaca card correspondente abaixo
+      document.querySelectorAll('.stop-shell').forEach(s => s.classList.remove('highlighted'));
+      const targetCard = document.getElementById(wp.cardId);
+      if (targetCard) targetCard.classList.add('highlighted');
+    };
+
+    window.setRouteMode = function(mode, btnEl) {
+      if (simTimer) stopRouteSimulation();
+      document.querySelectorAll('.route-mode-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      if (mode === 'completo') {
+        selectWaypoint(3, false);
+        document.querySelectorAll('.route-mode-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.mode === 'completo');
+        });
+      }
+    };
+
+    function stopRouteSimulation() {
+      if (simTimer) {
+        clearInterval(simTimer);
+        simTimer = null;
+      }
+      const btn = document.getElementById('btnSimularRota');
+      const ico = document.getElementById('simularIcon');
+      const txt = document.getElementById('simularText');
+      if (btn) btn.classList.remove('playing');
+      if (ico) ico.textContent = '▶';
+      if (txt) txt.textContent = 'Simular Travessia';
+    }
+
+    window.toggleRouteSimulation = function() {
+      if (simTimer) {
+        stopRouteSimulation();
+        return;
+      }
+      const btn = document.getElementById('btnSimularRota');
+      const ico = document.getElementById('simularIcon');
+      const txt = document.getElementById('simularText');
+      if (btn) btn.classList.add('playing');
+      if (ico) ico.textContent = '⏸';
+      if (txt) txt.textContent = 'Navegando...';
+
+      let step = 0;
+      selectWaypoint(step, false);
+      simTimer = setInterval(() => {
+        step = (step + 1) % WAYPOINTS.length;
+        selectWaypoint(step, false);
+        if (step === WAYPOINTS.length - 1) {
+          setTimeout(stopRouteSimulation, 1400);
+        }
+      }, 1500);
+    };
+
+    /* =====================================================================
+       SIMULADOR "MONTE SEU PASSEIO" (SEM PREÇOS)
+       ===================================================================== */
     const state = {
       modalidade: 'Barco Privativo',
       paradas: ['Ilha do Guaraú', 'Praia do Arpoador', 'Rio Guaraú & Manguezal'],
       adultos: 4,
       criancas: 0,
+      pets: 0,
       periodo: 'Manhã',
       data: ''
     };
@@ -2078,16 +3051,17 @@
     function updateSummary() {
       const partes = [`${state.adultos} ${state.adultos === 1 ? 'adulto' : 'adultos'}`];
       if (state.criancas > 0) partes.push(`${state.criancas} ${state.criancas === 1 ? 'criança' : 'crianças'}`);
+      if (state.pets > 0) partes.push(`${state.pets} ${state.pets === 1 ? 'pet' : 'pets'}`);
       const paradasTxt = state.paradas.join(', ');
       const dataTxt = state.data ? ` no dia ${formatDateBR(state.data)}` : '';
-      const msg = `Olá, G-TRIP Adventure! Estou com ${partes.join(' e ')} e queria marcar um passeio (${state.modalidade})${dataTxt}, período ${state.periodo}, conhecendo: ${paradasTxt}.`;
+      const msg = `Olá, G-TRIP Adventure! Estou com ${partes.join(', ')} e queria marcar um passeio (${state.modalidade})${dataTxt}, período ${state.periodo}, conhecendo: ${paradasTxt}.`;
 
       const el = document.getElementById('pResumo');
       const btn = document.getElementById('btnEnviarWa');
       if (el) {
         el.textContent = msg;
         if (window.gsap) {
-          gsap.fromTo(el, { borderColor: '#2DD4BF', backgroundColor: 'rgba(45,212,191,0.18)' }, { borderColor: 'rgba(94,234,212,0.22)', backgroundColor: 'rgba(3,18,28,0.82)', duration: 0.45 });
+          gsap.fromTo(el, { borderColor: '#2DD4BF', backgroundColor: 'rgba(45,212,191,0.18)' }, { borderColor: 'rgba(94,234,212,0.22)', backgroundColor: 'rgba(3,18,28,0.86)', duration: 0.45 });
         }
       }
       if (btn) btn.href = `https://wa.me/5513996645411?text=${encodeURIComponent(msg)}`;
@@ -2099,7 +3073,7 @@
       const valEl = document.getElementById(`val-${key}`);
       if (valEl) {
         valEl.textContent = state[key];
-        if (window.gsap) gsap.fromTo(valEl, { scale: 1.3 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' });
+        if (window.gsap) gsap.fromTo(valEl, { scale: 1.35 }, { scale: 1, duration: 0.28, ease: 'back.out(2)' });
       }
       updateSummary();
     };
@@ -2167,7 +3141,7 @@
       lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
       window.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
 
-      // Dock mobile
+      // Dock mobile inteligente
       const dock = document.getElementById('mobileDock');
       const targets = [document.getElementById('topo'), document.getElementById('planejador'), document.getElementById('rodape')].filter(Boolean);
       const visible = new Set();
@@ -2179,54 +3153,80 @@
         targets.forEach(t => io.observe(t));
       }
 
+      // Micro-interação magnética suave em desktop para botões principais
+      if (window.matchMedia('(pointer: fine)').matches) {
+        document.querySelectorAll('.magnetic').forEach(btn => {
+          btn.addEventListener('mousemove', e => {
+            const r = btn.getBoundingClientRect();
+            const x = (e.clientX - r.left - r.width / 2) * 0.16;
+            const y = (e.clientY - r.top - r.height / 2) * 0.16;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+          });
+          btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+          });
+        });
+      }
+
       // Motion Graphics GSAP + ScrollTrigger
       window.addEventListener('load', () => {
         if (!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
 
+        // Barra de leitura no topo
         gsap.to('#scrollBar', {
           scaleX: 1,
           ease: 'none',
           scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.2 }
         });
 
+        // Entrada escalonada do Hero
         gsap.from('.hero-in', {
-          y: 22,
+          y: 24,
           opacity: 0.001,
-          duration: 0.75,
-          stagger: 0.08,
+          duration: 0.8,
+          stagger: 0.09,
           ease: 'power3.out',
           clearProps: 'transform,opacity'
         });
 
-        gsap.fromTo('#heroImg', { scale: 1.12 }, { scale: 1.03, duration: 1.8, ease: 'power2.out' });
+        // Zoom-out cinematográfico + parallax da foto 4K do Hero
+        gsap.fromTo('#heroImg', { scale: 1.12 }, { scale: 1.03, duration: 1.9, ease: 'power2.out' });
         gsap.to('#heroImg', {
-          yPercent: 5,
+          yPercent: 6,
           ease: 'none',
           scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
         });
 
+        // Desenho automático da rota náutica ao entrar na seção #roteiro
+        ScrollTrigger.create({
+          trigger: '.nautical-radar-shell',
+          start: 'top 80%',
+          once: true,
+          onEnter: () => {
+            gsap.fromTo('#svgRouteActive',
+              { strokeDashoffset: 620 },
+              { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' }
+            );
+            gsap.fromTo('#boatMarker',
+              { attr: { transform: 'translate(78, 228)' } },
+              { attr: { transform: 'translate(616, 120)' }, duration: 1.6, ease: 'power2.inOut' }
+            );
+          }
+        });
+
+        // Reveal em lote das seções e cards
         ScrollTrigger.batch('.reveal', {
           start: 'top 88%',
           once: true,
           onEnter: els => gsap.from(els, {
-            y: 24,
+            y: 26,
             opacity: 0.001,
-            duration: 0.65,
+            duration: 0.68,
             stagger: 0.08,
             ease: 'power3.out',
             clearProps: 'transform,opacity'
           })
-        });
-
-        gsap.from('.route-node', {
-          x: -14,
-          opacity: 0.001,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: 'power2.out',
-          clearProps: 'transform,opacity',
-          scrollTrigger: { trigger: '.route-map-bar', start: 'top 86%', once: true }
         });
       });
     });
