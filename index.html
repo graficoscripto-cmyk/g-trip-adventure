@@ -25,16 +25,16 @@
   <meta property="og:title" content="G-TRIP Adventure — Passeios de Barco na Ilha do Guaraú">
   <meta property="og:description" content="Piscina natural da Ilha do Guaraú, cachoeira no mar na Praia do Arpoador e Rio Guaraú, em Peruíbe (SP).">
   <meta property="og:url" content="https://g-trip-adventure.vercel.app/">
-  <meta property="og:image" content="https://g-trip-adventure.vercel.app/img/og-gtrip-aventura-2810.jpg">
+  <meta property="og:image" content="https://g-trip-adventure.vercel.app/img/og-gtrip-aventura-3110.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="G-TRIP Adventure — Passeios de Barco na Ilha do Guaraú (Peruíbe, SP)">
   <meta name="twitter:description" content="Piscina natural da Ilha do Guaraú, cachoeira no mar na Praia do Arpoador e Rio Guaraú.">
-  <meta name="twitter:image" content="https://g-trip-adventure.vercel.app/img/og-gtrip-aventura-2810.jpg">
+  <meta name="twitter:image" content="https://g-trip-adventure.vercel.app/img/og-gtrip-aventura-3110.jpg">
 
-  <link rel="preload" as="image" href="img/ilha-guarau-mobile.webp" media="(max-width: 759px)" fetchpriority="high">
-  <link rel="preload" as="image" href="img/ilha-guarau-hero.webp" media="(min-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/hero-barra-do-una-mobile.webp" media="(max-width: 759px)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/hero-barra-do-una.webp" media="(min-width: 760px)" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,11 +55,11 @@
         "telephone": "+55-13-99664-5411",
         "priceRange": "$$",
         "image": [
-          "https://g-trip-adventure.vercel.app/img/og-gtrip-aventura-2810.jpg",
-          "https://g-trip-adventure.vercel.app/img/ilha-guarau-hero.jpg",
-          "https://g-trip-adventure.vercel.app/img/arpoador-cachoeira.jpg",
+          "https://g-trip-adventure.vercel.app/img/og-gtrip-aventura-3110.jpg",
+          "https://g-trip-adventure.vercel.app/img/hero-barra-do-una.jpg",
+          "https://g-trip-adventure.vercel.app/img/cachoeira-jureia.jpg",
           "https://g-trip-adventure.vercel.app/img/barco-gtrip-rio.jpg",
-          "https://g-trip-adventure.vercel.app/img/piscina-natural.jpg"
+          "https://g-trip-adventure.vercel.app/img/ilha-guarau-real.jpg"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -230,7 +230,7 @@
     .bussola .anel { transform-origin: 50px 50px; animation: anel 40s linear infinite; }
     @keyframes anel { to { transform: rotate(360deg); } }
     .credito-img { position: absolute; left: 14px; bottom: 12px; z-index: 2; font-size: .62rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255, 255, 255, .85); text-shadow: 0 1px 6px rgba(0, 0, 0, .5); }
-    .ph .credito-img { left: auto; right: 12px; }
+    .ph .credito-img { left: auto; right: 12px; white-space: nowrap; font-size: .56rem; }
     /* risco da logo (a vela/onda) que se desenha embaixo dos títulos */
     .risco { display: block; width: 120px; height: 14px; margin-top: 14px; color: var(--sky); overflow: visible; }
     .risco path { fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 140; stroke-dashoffset: 140; transition: stroke-dashoffset 1.2s var(--ease) .35s; }
@@ -398,6 +398,7 @@
     .footer { padding: 32px 0 100px; background: var(--night); color: rgba(255, 255, 255, 0.7); font-size: 0.88rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
     .footer-row { display: grid; gap: 14px; align-items: center; }
     .footer img { width: 130px; height: auto; }
+    .fotos-cred { font-size: .74rem; line-height: 1.5; opacity: .7; max-width: 70ch; }
     .footer a { color: #fff; display: inline-flex; align-items: center; min-height: 44px; }
 
     /* ---------- whatsapp ---------- */
@@ -523,9 +524,9 @@
     <section class="hero" id="topo">
       <div class="hero-media">
         <picture>
-          <source media="(max-width: 759px)" srcset="img/ilha-guarau-hero.webp?v=4k" type="image/webp">
-          <source media="(min-width: 760px)" srcset="img/ilha-guarau-hero.webp?v=4k" type="image/webp">
-          <img src="img/ilha-guarau-hero.jpg?v=4k" alt="Piscina natural de águas cristalinas na Ilha do Guaraú, em Peruíbe SP" width="3840" height="2160" fetchpriority="high" decoding="async" id="heroImg">
+          <source media="(max-width: 759px)" srcset="img/hero-barra-do-una-mobile.webp" type="image/webp">
+          <source media="(min-width: 760px)" srcset="img/hero-barra-do-una.webp" type="image/webp">
+          <img src="img/hero-barra-do-una.jpg" alt="Praia da Barra do Una vista do alto, em Peruíbe SP, com a Serra da Juréia ao fundo" width="3000" height="2000" fetchpriority="high" decoding="async" id="heroImg">
         </picture>
       </div>
       <svg class="bussola" viewBox="0 0 100 100" aria-hidden="true">
@@ -582,7 +583,7 @@
             <div class="ph reveal-ph">
               <div class="pi"><picture>
                 <source srcset="img/barco-gtrip-rio.webp?v=4k 2560w, img/barco-gtrip-rio-1080.webp?v=4k 3840w" sizes="100vw" type="image/webp">
-                <img src="img/barco-gtrip-rio.jpg?v=4k" alt="Barco da G-TRIP Adventure na margem do Rio Guaraú, em Peruíbe" width="3840" height="2160" loading="lazy" decoding="async" data-par data-lightbox>
+                <img src="img/barco-gtrip-rio.jpg?v=4k" alt="Vista aérea do Rio Guaraú serpenteando pelo manguezal, na Estação Ecológica Juréia-Itatins, em Peruíbe" width="3840" height="2160" loading="lazy" decoding="async" data-par data-lightbox>
               </picture></div>
             </div>
             <div class="stop-info reveal">
@@ -596,9 +597,8 @@
             <span class="stop-num">02</span>
             <div class="ph reveal-ph">
               <div class="pi"><picture>
-                <source srcset="img/piscina-natural.webp?v=4k 2400w, img/piscina-natural-1080.webp?v=4k 2880w" sizes="100vw" type="image/webp">
-                <img src="img/piscina-natural.jpg?v=4k" alt="Piscina natural entre as rochas da Ilha do Guaraú, em Peruíbe SP" width="2880" height="1639" loading="lazy" decoding="async" data-par data-lightbox>
-              </picture></div>
+                <img src="img/ilha-guarau-real.jpg" alt="Ilha do Guaraú, em Peruíbe SP, com palmeiras sobre as rochas e águas verdes ao redor" width="1280" height="768" loading="lazy" decoding="async" data-par data-lightbox>
+              </picture></div><span class="credito-img">Foto: Damon Michellepis</span>
             </div>
             <div class="stop-info reveal">
               <h3>Ilha do Guaraú</h3>
@@ -611,9 +611,9 @@
             <span class="stop-num">03</span>
             <div class="ph reveal-ph">
               <div class="pi"><picture>
-                <source srcset="img/arpoador-cachoeira.webp?v=4k 2400w, img/arpoador-cachoeira-1080.webp?v=4k 2712w" sizes="100vw" type="image/webp">
-                <img src="img/arpoador-cachoeira.jpg?v=4k" alt="Cachoeira que deságua na areia da Praia do Arpoador, em Peruíbe SP" width="2712" height="1808" loading="lazy" decoding="async" data-par data-lightbox>
-              </picture></div>
+                <source srcset="img/cachoeira-jureia-1400.webp 1400w, img/cachoeira-jureia.webp 2800w" sizes="100vw" type="image/webp">
+                <img src="img/cachoeira-jureia.jpg" alt="Cachoeira entre as rochas, na Estação Ecológica Juréia-Itatins, em Peruíbe SP" width="2800" height="2100" loading="lazy" decoding="async" data-par data-lightbox>
+              </picture></div><span class="credito-img">Cachoeira na Juréia-Itatins · Jufranfe</span>
             </div>
             <div class="stop-info reveal">
               <h3>Praia do Arpoador</h3>
@@ -629,23 +629,22 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <span class="eyebrow">De perto</span>
-          <h2 class="sec-title">Água de <span class="it">aquário.</span></h2>
+          <h2 class="sec-title">O litoral <span class="it">de Peruíbe.</span></h2>
           <svg class="risco" viewBox="0 0 120 14" aria-hidden="true"><path d="M3 11 C 40 2, 80 2, 117 8"/></svg>
         </div>
         <div class="duo">
           <figure class="reveal">
             <div class="ph reveal-ph"><div class="pi"><picture>
-              <source srcset="img/pedras-turquesa-1080.webp 1080w, img/pedras-turquesa.webp 1440w" sizes="(min-width: 760px) 40vw, 100vw" type="image/webp">
-              <img src="img/pedras-turquesa.jpg" alt="Águas turquesa entre as rochas da Ilha do Guaraú" width="1440" height="2560" loading="lazy" decoding="async" data-par data-lightbox>
+              <source srcset="img/rochas-barra-do-una.webp 2400w" sizes="(min-width: 760px) 40vw, 100vw" type="image/webp">
+              <img src="img/rochas-barra-do-una.jpg" alt="Rochas e mar na ponta da Praia da Barra do Una, em Peruíbe" width="2400" height="1600" loading="lazy" decoding="async" data-par data-lightbox>
             </picture></div></div>
-            <figcaption>Entre as rochas</figcaption>
+            <figcaption>Rochas da Barra do Una</figcaption>
           </figure>
           <figure class="reveal" style="--d:120ms">
             <div class="ph reveal-ph"><div class="pi"><picture>
-              <source srcset="img/ilha-guarau-2400.webp?v=4k 2880w" sizes="100vw" type="image/webp">
-              <img src="img/ilha-guarau-hero.jpg?v=4k" alt="Vista aérea da Ilha do Guaraú, em Peruíbe SP" width="2880" height="1639" loading="lazy" decoding="async" data-par data-lightbox>
+              <img src="img/ilhas-vistas-do-alto.jpg" alt="Ilhas da região do Guaraú vistas do alto, em Peruíbe SP" width="1280" height="720" loading="lazy" decoding="async" data-par data-lightbox>
             </picture></div></div>
-            <figcaption>A ilha vista do alto</figcaption>
+            <figcaption>As ilhas vistas do alto</figcaption>
           </figure>
         </div>
       </div>
@@ -797,8 +796,8 @@
     <section class="final" id="rodape">
       <div class="final-bg" aria-hidden="true">
         <picture>
-          <source srcset="img/ilha-guarau-1080.webp 1080w, img/ilha-guarau-2400.webp 2400w" sizes="100vw" type="image/webp">
-          <img src="img/ilha-guarau-hero.jpg" alt="" width="3840" height="2160" loading="lazy" decoding="async" data-final>
+          <source srcset="img/praia-guarau-1200.webp 1200w, img/praia-guarau.webp 3000w" sizes="100vw" type="image/webp">
+          <img src="img/praia-guarau.jpg" alt="" width="3000" height="2250" loading="lazy" decoding="async" data-final>
         </picture>
       </div>
       <div class="wrap">
@@ -813,6 +812,7 @@
     <div class="wrap footer-row">
       <img src="img/logo-gtrip-branco.webp" alt="G-TRIP Adventure" width="720" height="264" loading="lazy">
       <div>Passeios de barco · Rio Guaraú, Peruíbe - SP</div>
+      <div class="fotos-cred">Fotos (Wikimedia Commons, CC BY-SA 4.0): Praia da Barra do Una e Rochas da Barra do Una, Attilio Zolin · Rio Guaraú, Renato Augusto Martins · Ilha do Guaraú e ilhas vistas do alto, Damon Michellepis · Cachoeira na Juréia-Itatins, Jufranfe · Praia do Guaraú, Francisco Baraglia.</div>
       <div><a href="https://wa.me/5513996645411" target="_blank" rel="noopener">(13) 99664-5411</a> · <a href="https://www.instagram.com/g_trip_passeios/" target="_blank" rel="noopener">@g_trip_passeios</a></div>
     </div>
   </footer>
